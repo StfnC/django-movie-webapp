@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <title>Stefan's movies</title>
+        <h1>Welcome to Stefan's movies!</h1>
+
+        <form action="" name="search">
+            <input type="text" name="query"/>
+            <input type='submit' value="Search"/>
+        </form>
+
+        {% for movie in search_result%}
+            <p>
+                <h2>{{ movie.fields.Name }}</h2>
+                <img src="{{ movie.fields.Pictures.0.url }}" alt="" width="640" height="480"/>
+            </p>
+        {% endfor %}
+    </body>
+</html>
