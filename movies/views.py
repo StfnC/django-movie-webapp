@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from airtable import Airtable
 import os
@@ -14,3 +14,15 @@ def home_page(request):
     context_dict = {'search_result': search_result}
     print(user_query)
     return render(request, 'movies/movies_stuff.html', context_dict)
+
+def create(request):
+    if request.method == 'POST':
+        movie = {
+            'Name': request.POST.get('name'),
+            'Pictures': [{'url': request.POST.get('url')}],
+            'Rating': int(request.POST.get('rating')),
+            'Notes': str(request.POST.get('notes'))
+        }
+
+        AT.insert(movie)
+    return redirect('/')
