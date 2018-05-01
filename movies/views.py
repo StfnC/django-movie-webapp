@@ -31,7 +31,7 @@ def update(request, movie_id):
     if request.method == 'POST':
         updated_data = {
             'Name': request.POST.get('name'),
-            'Picture': [{'url': request.POST.get('url')}],
+            'Pictures': [{'url': request.POST.get('url')}],
             'Rating': int(request.POST.get('rating')),
             'Notes': request.POST.get('notes')
         }
