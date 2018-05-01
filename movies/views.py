@@ -17,12 +17,24 @@ def home_page(request):
 
 def create(request):
     if request.method == 'POST':
-        movie = {
+        data = {
             'Name': request.POST.get('name'),
             'Pictures': [{'url': request.POST.get('url')}],
             'Rating': int(request.POST.get('rating')),
             'Notes': str(request.POST.get('notes'))
         }
 
-        AT.insert(movie)
+        AT.insert(data)
+    return redirect('/')
+
+def update(request, movie_id):
+    if request.method == 'POST':
+        updated_data = {
+            'Name': request.POST.get('name'),
+            'Picture': [{'url': request.POST.get('url')}],
+            'Rating': int(request.POST.get('rating')),
+            'Notes': request.POST.get('notes')
+        }
+
+        AT.update(movie_id, updated_data)
     return redirect('/')
