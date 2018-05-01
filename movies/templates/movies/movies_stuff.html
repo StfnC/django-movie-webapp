@@ -33,6 +33,16 @@
             </nav>
             <section class="result">
                 <div class="container">
+                    <!-- Display notifications -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <!-- Display movies -->
                     <div class="movies">
                         {% for movie in search_result %}
                             <div class="movies__item">
