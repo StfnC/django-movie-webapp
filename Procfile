@@ -1,1 +1,1 @@
-web: gunicorn cp_django_barebones.wsgi
+web: python manage.py runserver
