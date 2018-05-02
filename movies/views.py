@@ -3,9 +3,9 @@ from django.contrib import messages
 from airtable import Airtable
 import os
 
-AT = Airtable(os.environ.get('AIRTABLE_MOVIESTABLE_BASE_ID', 'appXE8NjesMdUuPAU'),
+AT = Airtable(os.environ.get('AIRTABLE_MOVIESTABLE_BASE_ID'),
             'Movies',
-            api_key = os.environ.get('AIRTABLE_API_KEY', 'keya3hGnm0XyQI1d6'))
+            api_key = os.environ.get('AIRTABLE_API_KEY'))
 
 # Create your views here.
 def home_page(request):
